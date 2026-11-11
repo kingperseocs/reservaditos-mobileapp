@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Reservaditos · local (Ana)",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Reservaditos · AWS (Ana)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--dart-define-from-file=config/aws.json"]
+    },
+    {
+      "name": "Reservaditos · AWS (Rosa, no está al día)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--dart-define-from-file=config/aws-rosa.json"]
+    }
+  ]
+}

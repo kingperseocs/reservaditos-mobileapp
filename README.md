@@ -18,15 +18,21 @@ App del residente del **Edificio Demo**: ve las áreas comunes, elige fecha y ho
 
 ## Requisitos
 - Flutter **3.47.9** (stable, la misma versión fija del CI) · Dart 3.13
-- Android Studio (SDK y emulador) · VS Code con la extensión Flutter
-- El backend corriendo en tu PC en el puerto 8000 (ver su README)
+- Android Studio (SDK y un emulador creado en *Device Manager*) · VS Code con la extensión Flutter
+- El backend corriendo en tu PC en el puerto 8000 (ver [su README](https://github.com/kingperseocs/reservaditos-backend#cómo-correrlo)), **o** usar el backend en AWS (abajo)
+
+`flutter doctor` debe mostrar Flutter y Android toolchain en verde.
 
 ## Cómo correrlo
 ```bash
+git clone https://github.com/kingperseocs/reservaditos-mobileapp.git
+cd reservaditos-mobileapp
 flutter pub get
-flutter emulators --launch Pixel_9_Pro
+flutter emulators                      # lista tus emuladores
+flutter emulators --launch <id>        # por ejemplo Pixel_9_Pro
 flutter run
 ```
+También puedes abrir el emulador desde Android Studio y correr la app con F5 en VS Code. Entras como **Ana Pérez** (al día), sin login.
 Desde el emulador de Android, `10.0.2.2` es tu PC, así que la app llega al backend en `http://10.0.2.2:8000/v1` sin configurar nada.
 
 Otros casos, con `--dart-define`:
@@ -37,6 +43,14 @@ flutter run --dart-define=API_BASE_URL=http://192.168.1.50:8000/v1
 # Probar como la residente con cuota vencida
 flutter run --dart-define=RESIDENT_ID=rosa-medina
 ```
+
+### Contra el backend desplegado en AWS
+La demo en EC2 (`http://15.229.3.0/v1`, activa del 11 al 13/11/2026) tiene sus valores en `config/`:
+```bash
+flutter run --dart-define-from-file=config/aws.json        # Ana, al día
+flutter run --dart-define-from-file=config/aws-rosa.json   # Rosa, con cuota vencida
+```
+En VS Code están las mismas opciones en *Run and Debug* (`.vscode/launch.json`). La URL es HTTP sin TLS, así que solo funciona en builds de depuración, donde el manifiesto permite tráfico en texto plano.
 
 ## Tests
 ```bash
