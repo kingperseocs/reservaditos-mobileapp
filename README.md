@@ -17,7 +17,7 @@
 App del residente del **Edificio Demo**: ve las áreas comunes, elige fecha y horario, pide la reserva, sigue su estado mientras la administración la revisa y paga con el link cuando la aprueban. Consume la API de [reservaditos-backend](https://github.com/kingperseocs/reservaditos-backend); la administración aprueba en [reservaditos-webapp](https://github.com/kingperseocs/reservaditos-webapp).
 
 ## Requisitos
-- Flutter **3.47** (stable) · Dart 3.13
+- Flutter **3.47.9** (stable, la misma versión fija del CI) · Dart 3.13
 - Android Studio (SDK y emulador) · VS Code con la extensión Flutter
 - El backend corriendo en tu PC en el puerto 8000 (ver su README)
 
