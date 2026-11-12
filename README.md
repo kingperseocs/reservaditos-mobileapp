@@ -52,6 +52,14 @@ flutter run --dart-define-from-file=config/aws-rosa.json   # Rosa, con cuota ven
 ```
 En VS Code están las mismas opciones en *Run and Debug* (`.vscode/launch.json`). La URL es HTTP sin TLS, así que solo funciona en builds de depuración, donde el manifiesto permite tráfico en texto plano.
 
+### Problemas comunes
+| Síntoma | Causa | Solución |
+|---|---|---|
+| «No se pudo conectar con el servidor» | El backend local no está corriendo, o la app apunta a otro servidor | Comprueba que http://localhost:8000/v1/health responda en tu PC. Si usas AWS, lanza la app con `--dart-define-from-file=config/aws.json` |
+| Funcionaba con AWS y después de reiniciar ya no conecta | La URL se fija **al compilar**: un lanzamiento nuevo sin el archivo de configuración vuelve a la URL local | Lanza de nuevo con la opción de AWS. Para recargar sin recompilar, usa *hot restart* (`R` en la terminal de `flutter run`) |
+| El emulador se cierra solo | Falta memoria RAM | Cierra programas pesados y abre el emulador desde el *Device Manager* de Android Studio |
+| `flutter run` no encuentra el dispositivo | El emulador no terminó de arrancar | Espera a ver la pantalla de inicio de Android y revisa `flutter devices` |
+
 ## Tests
 ```bash
 flutter analyze

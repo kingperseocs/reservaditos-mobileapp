@@ -10,13 +10,13 @@
       "name": "Reservaditos · AWS (Ana)",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define-from-file=config/aws.json"]
+      "toolArgs": ["--dart-define-from-file=config/aws.json"]
     },
     {
       "name": "Reservaditos · AWS (Rosa, no está al día)",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define-from-file=config/aws-rosa.json"]
+      "toolArgs": ["--dart-define-from-file=config/aws-rosa.json"]
     }
   ]
 }
